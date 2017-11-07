@@ -22,7 +22,8 @@
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.3",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.1",
+    "nodemon": "1.12.1"
   },
   "devDependencies": {
     "@types/node": "^8.0.50",
