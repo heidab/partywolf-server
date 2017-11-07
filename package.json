@@ -1,0 +1,31 @@
+{
+  "name": "partywolf-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "gulp",
+    "start": "nodemon dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heidab/partywolf-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heidab/partywolf-server/issues"
+  },
+  "homepage": "https://github.com/heidab/partywolf-server#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.3",
+    "typescript": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.50",
+    "ts-node": "^3.3.0"
+  }
+}
