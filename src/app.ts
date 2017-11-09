@@ -21,9 +21,7 @@ class App {
     let router = express.Router();
     // placeholder route handler
     router.get('/', (req, res, next) => {
-      res.json({
-        message: 'Hello booleamn!'
-      });
+      res.send('holycrap!');
     });
     this.express.use('/', router);
   }
