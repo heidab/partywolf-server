@@ -22,7 +22,7 @@ class App {
     // placeholder route handler
     router.get('/', (req, res, next) => {
       res.json({
-        message: 'Hello boo!'
+        message: 'Hello booleamn!'
       });
     });
     this.express.use('/', router);
