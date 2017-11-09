@@ -1,4 +1,5 @@
 import * as express from 'express';
+import { Characters } from './characters';
 // Creates and configures an ExpressJS web server.
 class App {
   // ref to Express instance
@@ -21,7 +22,8 @@ class App {
     let router = express.Router();
     // placeholder route handler
     router.get('/', (req, res, next) => {
-      res.send('holycrap!');
+      let chars: Characters= new Characters();
+      res.send(chars.getMembers());
     });
     this.express.use('/', router);
   }
