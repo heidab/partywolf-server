@@ -2,12 +2,10 @@
   "name": "partywolf-server",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "./dist/main.js",
   "scripts": {
     "test": "gulp",
-    "watch:build": "tsc --watch",
-    "watch:server": "nodemon './dist/index.js' --watch './dist'",
-    "start": "nodemon dist/main.js" 
+    "start": "nodemon src/main.ts --exec ts-node" 
 
   },
   "repository": {
@@ -33,3 +31,4 @@
     "ts-node": "^3.3.0"
   }
 }
+
