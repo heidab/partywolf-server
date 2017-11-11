@@ -9,6 +9,7 @@ class App {
     this.express = express();
     this.middleware();
     this.routes();
+    
   }
   // Configure Express middleware.
   private middleware(): void {
@@ -20,10 +21,18 @@ class App {
      * working so far. This function will change when we start to add more
      * API endpoints */
     let router = express.Router();
+    router.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
     // placeholder route handler
     router.get('/', (req, res, next) => {
       let chars: Characters= new Characters();
       res.send(chars.getMembers());
+    });
+    router.get('/game', (req, res, next) => {
+      res.send('{ "game": "v2os" }');
     });
     this.express.use('/', router);
   }
