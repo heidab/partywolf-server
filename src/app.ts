@@ -1,5 +1,12 @@
 import * as express from 'express';
 import { Characters } from './characters';
+import * as mongoose from 'mongoose';
+import Player = require("./Player");
+
+
+var player = new Player({	displayName: "pruftest"});
+player.save();
+console.log(player);
 // Creates and configures an ExpressJS web server.
 class App {
   // ref to Express instance
