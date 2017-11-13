@@ -23,9 +23,9 @@
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.3",
-    "socket.io": "^2.0.4",
     "mongoose": "^4.13.1",
     "nodemon": "^1.12.1",
+    "socket.io": "^2.0.4",
     "typescript": "^2.6.1"
   },
   "devDependencies": {

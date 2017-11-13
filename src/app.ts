@@ -4,9 +4,9 @@ import * as mongoose from 'mongoose';
 import Player = require("./Player");
 
 
-var player = new Player({	displayName: "pruftest"});
+var player = new Player({	player: {name: 'Heida', role: 'wolf'}});
 player.save();
-console.log(player);
+console.log(player)
 // Creates and configures an ExpressJS web server.
 class App {
   // ref to Express instance

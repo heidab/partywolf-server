@@ -3,14 +3,13 @@ import IPlayer = require('./interfaces/IPlayer');
 interface IPlayerModel extends IPlayer, mongoose.Document { }
 
 
-var userSchema = new mongoose.Schema({
+var gameSchema = new mongoose.Schema({
     gameid: Number,
-	name: String,
 	player: {
         name: String,
         role: String
     }
 });
 
-var User = mongoose.model<IPlayerModel>("User", userSchema);
-export = User;
+var Game = mongoose.model<IPlayerModel>("User", gameSchema);
+export = Game;
