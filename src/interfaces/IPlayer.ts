@@ -1,9 +1,9 @@
 interface IPlayer {
 	gameid: number;
-	player: {
+	players: [{
         name: string;
         role: string;
-    } 
+    }]
 };
 
 export = IPlayer;

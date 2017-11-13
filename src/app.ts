@@ -1,12 +1,13 @@
 import * as express from 'express';
 import { Characters } from './characters';
 import * as mongoose from 'mongoose';
-import Player = require("./Player");
+mongoose.Promise = require('bluebird');
+import Game = require("./gameModel");
 
 
-var player = new Player({	player: {name: 'Heida', role: 'wolf'}});
-player.save();
-console.log(player)
+var game = new Game({gameid: 2,	players: [{name: 'Heida', role: 'wolf'},{name: 'Halli', role: 'king'}]});
+game.save();
+console.log(game)
 // Creates and configures an ExpressJS web server.
 class App {
   // ref to Express instance
@@ -41,6 +42,9 @@ class App {
     router.get('/game', (req, res, next) => {
       res.send('{ "game": "v2os" }');
     });
+    router.get('/test', (req, res, next) => {
+      res.send(game)
+    })
     this.express.use('/', router);
   }
 }
