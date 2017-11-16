@@ -3,13 +3,19 @@ import { Characters } from './characters';
 import * as mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import Game = require("./gameModel");
+import * as bodyParser from 'body-parser';
+import { GameLogic } from './game/gameLogic'
 
 
 var game = new Game({gameid: 2,	players: [{name: 'Heida', role: 'wolf'},{name: 'Halli', role: 'king'}]});
 game.save();
 console.log(game)
+
+
 // Creates and configures an ExpressJS web server.
 class App {
+  gameLogic : GameLogic = new GameLogic();
+  currentGame : any;
   // ref to Express instance
   public express: express.Application;
   //Run configuration methods on the Express instance.
@@ -21,7 +27,11 @@ class App {
   }
   // Configure Express middleware.
   private middleware(): void {
+    this.express.use(bodyParser.json()); // support json encoded bodies
+    this.express.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
   }
+
 
   // Configure API endpoints.
   private routes(): void {
@@ -39,11 +49,16 @@ class App {
       let chars: Characters= new Characters();
       res.send(chars.getMembers());
     });
-    router.get('/game', (req, res, next) => {
-      res.send('{ "game": "v2os" }');
+    router.post('/game', (req, res, next) => {
+      console.log(req.body.nickname);
+      this.currentGame = this.gameLogic.generateRoomNumber(req.body.nickname);
+      res.send(this.currentGame);
     });
-    router.get('/test', (req, res, next) => {
-      res.send(game)
+    router.post('/game/join', (req, res, next) => {
+      console.log(req.body.nickname);
+      console.log(req.body.gameid);
+      this.currentGame = this.gameLogic.joinGame(req.body.nickname, this.currentGame);
+      res.send(this.currentGame);
     })
     this.express.use('/', router);
   }

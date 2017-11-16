@@ -4,7 +4,7 @@ interface IPlayerModel extends IPlayer, mongoose.Document { }
 
 
 var gameSchema = new mongoose.Schema({
-    gameid: Number,
+    gameid: String,
 	players: [{
         name: String,
         role: String

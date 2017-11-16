@@ -1,10 +1,10 @@
 import * as http from 'http';
 import App from './App';
-import * as socketIo from "socket.io";
-
+import * as socketIo from 'socket.io';
 const port =  4000;
 
 App.set('port', port);
+
 //create a server and pass our Express app to it.
 const server = http.createServer(App);
 server.listen(port);

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/heidab/partywolf-server#readme",
   "dependencies": {
     "@types/mongodb": "^2.2.15",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "gulp-typescript": "^3.2.3",
